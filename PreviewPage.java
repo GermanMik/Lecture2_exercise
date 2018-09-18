@@ -22,17 +22,13 @@ public class PreviewPage extends AppCompatActivity {
     }
 
     public void SendByEmail(View view) {
-//        String emailText = intent.getStringExtra(TEXT_DATA);
-//        String emailText = intent.getStringExtra(TEXT_DATA);
-//        intent.setType("text/plain");
-//        String emailText = intent.getStringExtra(TEXT_DATA);
-//        intent.putExtra(Intent.EXTRA_TEXT, emailText);
-//        Toast.makeText(this, emailText, Toast.LENGTH_LONG).show();
         TextView receivedMessage = findViewById(R.id.textViewPreviewPage);
         String emailText = (String) receivedMessage.getText();
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TEXT, String.valueOf(emailText));
+        intent.putExtra(Intent.EXTRA_TEXT, emailText);
+        intent.putExtra(Intent.EXTRA_TITLE, getString(R.string.text_email_title));
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.text_email_subject));
         Toast.makeText(this, emailText, Toast.LENGTH_LONG).show();
         startActivity(intent);
     }
