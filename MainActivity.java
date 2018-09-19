@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         textInput = findViewById(R.id.inputtext);
     }
 
+    //message
     public void message(View view) {
         Intent intent = new Intent(this, PreviewPage.class);
         String textData = textInput.getText().toString();
